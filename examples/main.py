@@ -29,7 +29,7 @@ class TestClient(unittest.TestCase):
 
         body = {}
 
-        res = dataopen_client.request("/libra/openapi/v1/open/flight-list", "GET", headers, params, body)
+        res = dataopen_client.request("/xxx/openapi/v1/open/flight-list", "GET", headers, params, body)
         print("\n\nOutput: ", res)
 
     def test_request_post(self):
@@ -47,7 +47,7 @@ class TestClient(unittest.TestCase):
         }
 
         res = dataopen_client.request(
-            "/libra/openapi/v1/open/flight/version/6290880/add-test-user",
+            "/xxx/openapi/v1/open/flight/version/6290880/add-test-user",
             "POST",
             headers,
             params,
