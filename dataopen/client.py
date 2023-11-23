@@ -83,6 +83,7 @@ class Client:
 
     def get_token(self):
         authorization_url = f"{self.env}{self.OPEN_APIS_PATH}/v1/authorization"
+        print("authorization_url", authorization_url)
         completed_url = f"{self.url}/{authorization_url}"
 
         data = {
