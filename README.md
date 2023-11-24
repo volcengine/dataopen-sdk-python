@@ -7,7 +7,6 @@
 | app_id     | str             | 无                                    | 应用的唯一标识符                                    |
 | app_secret | str             | 无                                    | 用于应用的安全认证的密钥                            |
 | url        | str or NoneType | "https://analytics.volcengineapi.com" | 服务器的 URL 地址                                   |
-| env        | str or NoneType | "dataopen"                            | 环境设置，可选值为 "dataopen" 或 "dataopen_staging" |
 | expiration | str or NoneType | "1800"                                | 过期时间，单位是秒                                  |
 
 ## client.request 参数说明
@@ -42,7 +41,7 @@ params: dict[str, ParamsValueType] = {
 
 body = {}
 
-res = dataopen_client.request("/xxx/openapi/v1/open/flight-list", "GET", headers, params, body)
+res = dataopen_client.request("/dataopen/open-apis/xxx/openapi/v1/open/flight-list", "GET", headers, params, body)
 print("\n\nOutput: ", res)
 ```
 
@@ -65,7 +64,7 @@ body: dict[str, any] = {
 }
 
 res = dataopen_client.request(
-    "/xxx/openapi/v1/open/flight/version/6290880/add-test-user",
+    "/dataopen/open-apis/xxx/openapi/v1/open/flight/version/6290880/add-test-user",
     "POST",
     headers,
     params,

@@ -23,20 +23,18 @@ ParamsValueType = Union[str, int, bool]
 
 class Client:
     METHOD_ALLOWED = ["POST", "GET", "DELETE", "PUT", "PATCH"]
-    OPEN_APIS_PATH = "/open-apis"
+    OPEN_APIS_PATH = "/dataopen/open-apis"
 
     def __init__(
         self,
         app_id: str,
         app_secret: str,
         url: Union[str, None] = "https://analytics.volcengineapi.com",
-        env: Union[str, None] = "dataopen",
         expiration: Union[str, None] = "1800"
     ):
         self.app_id = app_id
         self.app_secret = app_secret
         self.url = url
-        self.env = env
         self.expiration = expiration
         self._ttl = 0
         self._access_token = ""
@@ -56,7 +54,7 @@ class Client:
         for key in headers:
             new_headers[key] = headers[key]
 
-        completed_url = f"{self.url}/{self.env}{self.OPEN_APIS_PATH}{service_url}"
+        completed_url = f"{self.url}{service_url}"
         query_url = self._joint_query(completed_url, params)
 
         if upper_case_method == "GET":
@@ -82,7 +80,7 @@ class Client:
         return self._access_token != ""
 
     def get_token(self):
-        authorization_url = f"{self.env}{self.OPEN_APIS_PATH}/v1/authorization"
+        authorization_url = f"{self.OPEN_APIS_PATH}/v1/authorization"
         print("authorization_url", authorization_url)
         completed_url = f"{self.url}/{authorization_url}"
 
