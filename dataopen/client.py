@@ -49,6 +49,7 @@ class Client:
         new_headers = {
             "Authorization": self._access_token,
             "Content-Type": "application/json",
+            "x-sdk-source": "python"
         }
 
         for key in headers:
@@ -90,7 +91,7 @@ class Client:
         }
 
         resp = requests.post(completed_url, headers={
-                             "Content-Type": "application/json"}, data=json.dumps(data)).json()
+                             "Content-Type": "application/json", "x-sdk-source": "python"}, data=json.dumps(data)).json()
 
         token_time = time.time()
 

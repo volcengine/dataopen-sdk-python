@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="dataopen-sdk-python",
-    version="0.0.6",
+    version="0.0.7",
     description="火山Dataopen python 语言sdk",
     author="caichengnan@bytedance.com",
     license="Apache-2.0",
